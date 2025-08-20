@@ -98,7 +98,7 @@ public class ForTask02 {
 			result += i + 1;
 		}
 		System.out.printf("짝수 중 첫번째와 마지막 수의 합은 %d입니다.", result);
-		System.out.println();
+		System.out.println(count2);
 		
 	}
 }
