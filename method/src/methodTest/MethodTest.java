@@ -6,13 +6,14 @@ public class MethodTest {
 				return num1 - num2 - num3;
 	}
 	
-//	성과 이름을 붙여서 출ㄹ력
+//	성과 이름을 붙여서 출력
 	void printFullName(String lastName, String firstName) {
 		System.out.println(lastName + firstName);
 	}
 	
-	
 	public static void main(String[] args) {
-		MethodTest.printFullName("가","나다");
+		MethodTest mt = new MethodTest();
+		new MethodTest().printFullName("a", "b");
+		mt.printFullName(null, null);
 	}
 }
