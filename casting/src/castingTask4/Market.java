@@ -2,7 +2,7 @@ package castingTask4;
 
 public class Market {
 //	--- 필드 변수 ---
-	private String Name;
+	private String name;
 	private Product[] productList;
 //	--- 초기화 블록 ---
 	{
@@ -11,14 +11,14 @@ public class Market {
 // --- 생성자 ---
 	public Market() {;}
 	public Market(String name) {
-		Name = name;
+		this.name = name;
 	}
 // --- getter, setter ---
 	String getName() {
-		return Name;
+		return name;
 	}
 	void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 	Product[] getProductList() {
 		return productList;
@@ -28,11 +28,12 @@ public class Market {
 	}
 // --- 필드 메서드 ---
 	public void sellProduct(Product product, Customer customer) {
+//		재고가 있는지 확인하는 부분 추가하기
 		boolean isExistence = false, isLowMoney = false;
 		long sellingPrice = 0L;
 		
 //		조건 1 : 없는 상품일 경우 정지
-		isExistence = true;
+		isExistence = false;
 		for(Product products : this.productList) {
 			if(products.getName().equals(product.getName())) {
 				isExistence = true;
@@ -61,21 +62,23 @@ public class Market {
 					System.out.println(this.productList[i].getName() + "의 남은 재고는 " + this.productList[i].getInventory() + "입니다.");
 				}
 			}
-		} else if(!isLowMoney){
-			for(int i = 0; i < this.productList.length; i++) {
-				if(this.productList[i].getName().equals(product.getName())) {
-					this.productList[i].setInventory(this.productList[i].getInventory() - 1);
-					customer.setMoney(customer.getMoney() - sellingPrice);
-					System.out.println("현금으로 구매 완료");
-					this.giveCoupon(customer);
-					System.out.println(customer.getName() + "님");
-					System.out.println("남은 금액은 " + customer.getMoney() + "입니다.");
-					this.earnPoints(customer, sellingPrice);
-					System.out.println(this.productList[i].getName() + "의 남은 재고는 " + this.productList[i].getInventory() + "입니다.");
-				}
-			}
 		} else {
-			System.err.println(customer.getName() + "님 잔액이 부족합니다.");
+			if(!isLowMoney){
+				for(int i = 0; i < this.productList.length; i++) {
+					if(this.productList[i].getName().equals(product.getName())) {
+						this.productList[i].setInventory(this.productList[i].getInventory() - 1);
+						customer.setMoney(customer.getMoney() - sellingPrice);
+						System.out.println("현금으로 구매 완료");
+						this.giveCoupon(customer);
+						System.out.println(customer.getName() + "님");
+						System.out.println("남은 금액은 " + customer.getMoney() + "입니다.");
+						this.earnPoints(customer, sellingPrice);
+						System.out.println(this.productList[i].getName() + "의 남은 재고는 " + this.productList[i].getInventory() + "입니다.");
+					}
+				}
+			} else {
+				System.err.println(customer.getName() + "님 잔액이 부족합니다.");
+			}
 		}
 	}
 	public void addProduct(Product product) {

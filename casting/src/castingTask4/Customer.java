@@ -8,7 +8,7 @@ public class Customer {
 	private long point;
 	private int coupon;
 	private double discount;
-//	초기화 블록
+//	초기화 블록 -> 자동으로 초기화 되므로 초기화를 할 필요가 없음. 0이 아닌 값으로 초기화 할 때 사용
 	{
 		this.setCoupon(0);
 		this.setPoint(0);

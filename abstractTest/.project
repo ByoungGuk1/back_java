@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>inheritance</name>
+	<name>abstractTest</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -16,7 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1756251839648</id>
+			<id>1756270973263</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
