@@ -85,8 +85,13 @@ public class MyMath {
 			String[] resultStrArr = null, tmp = null;
 			tmp = expression.split("\\+|\\-");
 			resultStrArr = new String[tmp.length - 1];
-			for(int i = 0; i < resultStrArr.length; i++) {
-				resultStrArr[i] = tmp[i+1];
+//		첫 수가 음수인경우와 아닌 경우로 나눠서 로직 동작
+			if(expression.charAt(0) == '-') {
+				for(int i = 0; i < resultStrArr.length; i++) {
+					resultStrArr[i] = tmp[i + 1];
+				}				
+			} else {
+				resultStrArr = tmp;
 			}
 			return resultStrArr;
 		};
@@ -105,9 +110,21 @@ public class MyMath {
 		
 //		만든 메서드 사용
 		for(int i = 0; i < removedOper.length; i++) {
-			result = Integer.parseInt(removedOper[i]);
+			if(inputString.charAt(0) != '-') {
+				if(i == 0)
+					preData = Integer.parseInt(removedOper[i]);
+				if(i == removedOper.length - 1)	break;
+				result = Integer.parseInt(removedOper[i + 1]);
+			}
+			else	result = Integer.parseInt(removedOper[i]);
+			System.out.println("이전 값\t: " + preData);
+			System.out.println("연산자\t: " + operArr[i]);
+			System.out.println("연산할 값\t: " + result);
 			preData = calculator(operArr[i]).calc(preData, result);
+			System.out.println("결과\t: " + preData);
+			System.out.println();
 		}
+		
 		result = preData;
 		
 //		결과 출력
