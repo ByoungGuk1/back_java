@@ -16,7 +16,7 @@ public class Sms {
     
     // 4 params(to, from, type, text) are mandatory. must be filled
     HashMap<String, String> params = new HashMap<String, String>();
-    params.put("to", "01025489165");
+    params.put("to", "01000000000");
     params.put("from", "01000000000");
     params.put("type", "SMS");
     params.put("text", "😉");

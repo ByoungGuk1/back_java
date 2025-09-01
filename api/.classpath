@@ -7,7 +7,9 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="lib" path="D:/back_0900_sbk/java/resource/calc.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/back_0900_sbk/java/resource/java-sdk v2.2/lib/javaSDK-2.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/back_0900_sbk/java/resource/java-sdk v2.2/lib/json-simple-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/back_0900_sbk/java/resource/java-sdk v2.2_sms/lib/javaSDK-2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/back_0900_sbk/java/resource/java-sdk v2.2_sms/lib/json-simple-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/back_0900_sbk/java/resource/java_mail_api/activation-1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/back_0900_sbk/java/resource/java_mail_api/mail-1.4.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
