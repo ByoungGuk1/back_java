@@ -1,4 +1,4 @@
-package collection;
+package collectionTest;
 
 import java.util.ArrayList;
 
@@ -55,21 +55,24 @@ public class ArrayListTest2 {
 		
 		try {
 //	수정 90을 9로 수정
-			if(arrInt.contains(90))
+			if(arrInt.contains(90)) {
 				prev = arrInt.set(arrInt.indexOf(90) + 1, 9);
+			}
 		} catch (IndexOutOfBoundsException e) {
 			System.err.println("arrInt.set() index error");
 			System.err.println("arrInt index error");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}		
+		System.out.println("이전 값 : "+prev);
 		
 		try {
 //	80을 삭제
 //			1. 인덱스 삭제
 //			2. 값으로 삭제
-			if(arrInt.contains(80))
-				arrInt.remove(80);
+			if(arrInt.contains(Integer.valueOf(80)))
+//				wrapper 클래스
+				arrInt.remove(Integer.valueOf(80));
 		} catch (IndexOutOfBoundsException e) {
 			System.err.println("arrInt.remove() index error");
 			System.err.println("arrInt index error");
