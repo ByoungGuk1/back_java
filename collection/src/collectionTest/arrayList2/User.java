@@ -7,6 +7,7 @@ public class User {
 	private String name;
 	private String password;
 	private String phone;
+	private String recentChangePw;
 	
 	public User() {;}
 	public User(String id, String name, String password, String phone) {
@@ -41,10 +42,17 @@ public class User {
 	void setPhone(String phone) {
 		this.phone = phone;
 	}
+	String getRecentChangePw() {
+		return phone;
+	}
+	void setRecentChangePw(String recentChangePw) {
+		this.recentChangePw = recentChangePw;
+	}
 
 	@Override
 	public String toString() {
-		return "User {id=" + id + ", name=" + name + ", password=" + password + ", phone=" + phone + "}";
+		return "User [id=" + id + ", name=" + name + ", password=" + password + ", phone=" + phone + ", recentChangePw="
+				+ recentChangePw + "]";
 	}
 	@Override
 	public int hashCode() {
