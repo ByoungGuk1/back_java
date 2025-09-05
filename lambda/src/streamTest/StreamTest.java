@@ -1,49 +1,51 @@
 package streamTest;
 
 import java.util.ArrayList;
-import java.util.stream.IntStream;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamTest {
-//	public void printodd(int num) {
-//		return num%2==1?num:0;
-//	}
-	
 	public static void main(String[] args) {
-//		0~9 대입
-		ArrayList<Integer> datas = new ArrayList<Integer>();
-
-//		IntStream	-> 
-//		.range(n, m)	-> n부터 m까지, n은 포함 m은 제외
-//		.rangeClosed(n, m)	-> n부터 m까지, n,m 모두 포함
-		IntStream.rangeClosed(0, 10).forEach((number) -> {
-			datas.add(number);
-		});
-
-//		1~5까지 스트림문법으로 출력하기
-//		IntStream.range(0, 5).forEach((range) -> {
-//			System.out.print(range + 1 + " ");
-//		});
-//		System.out.println();
-
-//		참조형 문법
-//		.(소속::메서드명)
-//		IntStream.rangeClosed(1, 5).forEach(System.out::print);
-//		클래스명::메서드명
-
-		System.out.println(datas);
-//		0~10까지 짝수만 출력하기
-		datas.stream().filter(data -> data % 2 == 0).forEach(System.out::print);
-		System.out.println();
-
-//		datas 홀수만 출력하기
-		datas.stream().filter(data -> data % 2 == 1).forEach(System.out::print);
-		System.out.println();
-
-//		.stream(): 컬렉션을 Stream객체로 변경
-//		.chars() : 문자열을 Stream 객체로 변경
-		"ABCD".chars().forEach((data)->{
-			System.out.println((char)data);
-		});
-
+//		.sorted(): 정렬
+		ArrayList<Integer> numbers = new ArrayList<Integer>(Arrays.asList(1, 10, 6, 4, 8));
+		numbers.stream().sorted().forEach(System.out::println);
+		numbers.stream().sorted(Collections.reverseOrder()).forEach(System.out::println);
+		
+//		.collect(): 결과를 다양한 타입으로 리턴
+		ArrayList<Integer> numbers2 = new ArrayList<Integer>(Arrays.asList(1, 10, 6, 4, 8));
+		List<Integer> newList = numbers2
+				.stream().map((n) -> n * 10)
+				.collect(Collectors.toList());
+		
+		ArrayList<Integer> newArrayList = numbers2
+			.stream().map((n) -> n * 10)
+			.collect(Collectors.toCollection(ArrayList::new));
+		
+//		문자열로 결과 타입을 변경
+		String newString = numbers2
+				.stream().map((n) -> n * 10)
+				.map(String::valueOf)
+				.collect(Collectors.joining(", "));
+		
+		System.out.println(newString);
+		System.out.println(newList);
+		
+		
+		
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
