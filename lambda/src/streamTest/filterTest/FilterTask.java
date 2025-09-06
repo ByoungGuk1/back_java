@@ -22,28 +22,30 @@ public class FilterTask {
 		users.add(user5);
 		
 //		1. 나이가 20살 이하인 사용자들만 출력하기
-//		users
+		users.stream().filter((data)->data.getAge() <= 20).forEach(System.out::println);
 //		users.stream().filter((user) -> user.getAge() <= 20).forEach(System.out::println);;
-		
-//		2. 이씨 성을 가진 사용자들만 출력하기
+		System.out.println("------");
+
+//		2. 이씨 성을 가진 사용자들만 출력하기 => .startsWith("이")
 		users.stream()
 			.filter((user) -> user.getName().startsWith("이"))
 //			.filter((user) -> String.valueOf(user.getName().charAt(0)).equals("이"))
 //			.filter((user) -> user.getName().charAt(0) == '이')
 			.forEach(System.out::println);
-		
+		System.out.println("------");
+
 //		3. 직업 중 "자"로 끝나는 유저를 출력
 		users.stream()
 			.filter((user) -> user.getJob().endsWith("자"))
 			.forEach(System.out::println);
-		
+
+		System.out.println("------");
 //		클래스 정렬
 		users.stream()
 			.filter((user) -> user.getJob().endsWith("자"))
-			.sorted(Comparator.comparing(User::getId).reversed())
+			.sorted(Comparator.comparing(User::getName).reversed())
 			.forEach(System.out::println);
-		
-		
+
 	}
 }
 

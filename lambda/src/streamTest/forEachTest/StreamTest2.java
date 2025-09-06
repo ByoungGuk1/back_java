@@ -17,8 +17,8 @@ public class StreamTest2 {
 //		IntStream.range(0, 5).forEach(datas1::remove);
 		System.out.println(datas1);
 		
-		ArrayList<Integer> datas2 = new ArrayList<Integer>();
 //		10 ~ 1까지 추가 후 출력
+		ArrayList<Integer> datas2 = new ArrayList<Integer>();
 		IntStream.range(0, 10).forEach((n) -> { datas2.add(10 - n);});
 		System.out.println(datas2);
 		
@@ -26,34 +26,25 @@ public class StreamTest2 {
 		ArrayList<String> datas3 = new ArrayList<String>();
 //		"ABCDEFGHIJK"을 datas3에 각각 한 글자씩 추가 후 출력하기
 //		"A", "B", "C", ... "K"
-//		"ABCDEFGHIJK".chars().forEach((n) -> {datas3.add(String.valueOf((char)n));});
-//		datas3.forEach(System.out::print);
+		"ABCDEFGHIJK".chars().forEach((data)->{
+			datas3.add(String.valueOf((char)data));
+		});
+		System.out.println(datas3);
 
 		
-		ArrayList<String> datas4 = new ArrayList<String>();
 //		"aBcDeFgHiJk"을 datas4에 소문자만 각각 한 글자씩 추가 후 출력하기
-//		"aBcDeFgHiJk".chars().forEach((n) -> {
-//				if(n >= 97 && n <= 122) {
-//					datas4.add(String.valueOf((char)n));
-//				}
-//			});
-//		datas4.forEach(System.out::print);
+		ArrayList<String> datas4 = new ArrayList<String>();
+		"aBcDeFgHiJk".chars().filter((data)->data >= 'a' && data <= 'z')
+		.forEach((data)->{datas4.add(String.valueOf((char)data));});
+		datas4.forEach(System.out::print);
+		System.out.println();
 		
-		ArrayList<String> datas5 = new ArrayList<String>();
 //		"aBcDeFgHiJk" datas5에 모두 대문자로 변경 후 추가, 그리고 모두 출력
-		"aBcDeFgHiJk".toUpperCase().chars().forEach((n) -> {datas5.add(String.valueOf((char)n));});
-		datas5.forEach((s) -> {System.out.print(s);});
-		
+		ArrayList<String> datas5 = new ArrayList<String>();
+		"aBcDeFgHiJk".toUpperCase().chars().forEach(data->{
+			datas5.add(String.valueOf((char)data));
+		});
+		datas5.forEach(System.out::print);
+
 	}
 }
-
-
-
-
-
-
-
-
-
-
-

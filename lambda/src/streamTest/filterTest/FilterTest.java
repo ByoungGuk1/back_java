@@ -7,15 +7,12 @@ import java.util.stream.IntStream;
 public class FilterTest {
 	public static void main(String[] args) {
 		
-		IntStream.rangeClosed(1, 10).filter((n) -> n % 2 == 0).forEach(System.out::println);
+//		IntStream.rangeClosed(1, 10).filter((n) -> n % 2 == 0).forEach(System.out::println);
 		ArrayList<Integer> numbers = IntStream.rangeClosed(1, 10)
 				.filter((n) -> n % 2 == 0)
 				.boxed()
 				.collect(Collectors.toCollection(ArrayList::new));
-		
-		
-		
-		
-		
+
+		numbers.forEach(System.out::println);
 	}
 }

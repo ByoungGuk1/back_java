@@ -20,6 +20,7 @@ public class StreamTask1 {
       IntStream.range(0, 6)
          .mapToObj((n) -> (char)('A' + n))
          .collect(Collectors.toCollection(ArrayList::new))
+//         .collect(Collectors.toList())
          .forEach(System.out::println);
       
 //      3. 1~100까지 중 홀수만 ArrayList에 담고 출력
@@ -40,19 +41,19 @@ public class StreamTask1 {
       
 //      5. 5개의 문자열을 모두 소문자로 변경 후 출력
 //      "Black", "WHITE", "reD", "yeLLow", "PInk"
-      ArrayList<String> datas5 = new ArrayList<String>(Arrays.asList("Black", "WHITE", "reD", "yeLLow", "PInk"));
+      ArrayList<String> datas5 = new ArrayList<>(Arrays.asList("Black", "WHITE", "reD", "yeLLow", "PInk"));
       datas5.stream().map(String::toLowerCase).forEach(System.out::println);
       
 //      6. "Apple", "banana", "Melon", "orange" 중 앞글자가 대문자인 문자열만 출력
-      ArrayList<String> datas6 = new ArrayList<String>(Arrays.asList("Apple", "banana", "Melon", "orange"));
+      ArrayList<String> datas6 = new ArrayList<>(Arrays.asList("Apple", "banana", "Melon", "orange"));
       datas6.stream()
-         .filter((s) -> s.charAt(0) >= 65)
-         .filter((s) -> s.charAt(0) <= 90)
+         .filter((s) -> s.charAt(0) >= 'A' && s.charAt(0) <= 'Z')
          .forEach(System.out::println);
       
 //      7. 한글을 정수로 변경 "공칠이삼" -> 0723
       String hangle = "공일이삼사오육칠팔구";
       String input = "일공이사";
+      
       input.chars().map(hangle::indexOf).forEach(System.out::println);
       
 //      8. 정수를 한글로 변경 "0723" -> "공칠이삼"

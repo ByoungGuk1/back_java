@@ -21,7 +21,7 @@ public class StreamTask2 {
 		intArrList2 = IntStream
 				.rangeClosed(1, 6)	//:<IntStream>
 				.map(n -> n * 10)	//:<IntStream>
-				.mapToObj(Integer::valueOf)	//:<Stream<Integer>>
+				.mapToObj((data)->Integer.valueOf(data))	//:<Stream<Integer>>
 				.collect(Collectors.toCollection(ArrayList::new));	//:<ArrayList<Integer>>
 
 //		mapToObj() -> IntStream -> Stream<T>
