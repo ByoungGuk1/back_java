@@ -13,6 +13,13 @@ public class StreamTest {
 		numbers.stream().sorted().forEach(System.out::println);
 		numbers.stream().sorted(Collections.reverseOrder()).forEach(System.out::println);
 		
+		ArrayList<String> datas1 = new ArrayList<String>();
+		datas1.add("A");
+		datas1.add("B");
+		datas1.add("C");
+		
+		datas1.stream().sorted(Collections.reverseOrder()).forEach(System.out::println);
+		
 //		.collect(): 결과를 다양한 타입으로 리턴
 		ArrayList<Integer> numbers2 = new ArrayList<Integer>(Arrays.asList(1, 10, 6, 4, 8));
 		List<Integer> newList = numbers2
@@ -22,6 +29,9 @@ public class StreamTest {
 		ArrayList<Integer> newArrayList = numbers2
 			.stream().map((n) -> n * 10)
 			.collect(Collectors.toCollection(ArrayList::new));
+		System.out.println("-----");
+		System.out.println(newArrayList);
+		System.out.println("-----");
 		
 //		문자열로 결과 타입을 변경
 		String newString = numbers2

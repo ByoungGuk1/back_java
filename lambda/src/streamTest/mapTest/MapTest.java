@@ -1,6 +1,7 @@
 package streamTest.mapTest;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class MapTest {
@@ -28,34 +29,22 @@ public class MapTest {
 //		2. 1~10까지 datas1에 추가한다.
 		IntStream.rangeClosed(1, 10).forEach(datas1::add);
 //		3. datas1의 모든 값을 10배로 변경한다.
+		datas1 = datas1.stream().map((data)->data *= 10).collect(Collectors.toCollection(ArrayList::new));;
 //		4. datas1의 모든 값을 출력한다.
 //		datas1.stream().map((n) -> n * 10).forEach(System.out::println);
+		System.out.println(datas1);
 		
 //		2. .map()
 //		ArrayList의 값을 알파벳으로 바꿔서 출력하기
 //		ex)원본 [1, 2, 3, 4, 5, ..., 10]
 //		ex)변경 ['A', 'B', 'C', ... 'J']
-		System.out.println(datas1);
-		
-		datas1.stream().map((n) -> n + 64).forEach((n) -> {
-			System.out.println((char)(int)n);
+		ArrayList<Integer> newArr = new ArrayList<>();
+		IntStream.rangeClosed(1, 10).forEach((n)->{
+			newArr.add(n);
 		});
 		
-		
-		
+		newArr.stream().map((data)->(char)(data + 'A' - 1))
+		.forEach(System.out::print);;
+
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

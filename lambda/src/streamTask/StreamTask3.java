@@ -25,7 +25,7 @@ public class StreamTask3 {
 				//:<IntStream>
 				.boxed()	//.mapToObj(Integer :: valueOf)
 				//:<Stream<Integer>>
-				.collect(Collectors.toList());	//.collect(Collectors.toCollection(ArrayList<Integer>::new));
+				.collect(Collectors.toList());	//.collect(Collectors.toCollection(ArrayList::new));
 				//:<List<Integer>>
 		
 		Li.forEach(System.out::println);
